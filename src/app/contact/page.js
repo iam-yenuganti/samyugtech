@@ -76,12 +76,12 @@ export default function Contact() {
               <form className={styles.contactForm}>
                 <div className={styles.formGroup}>
                   <label htmlFor="name" className={styles.formLabel}>Full Name</label>
-                  <input type="text" id="name" className={styles.formInput} placeholder="Srinivas Yenuganti" required />
+                  <input type="text" id="name" className={styles.formInput} placeholder="John Doe" required />
                 </div>
                 
                 <div className={styles.formGroup}>
                   <label htmlFor="email" className={styles.formLabel}>Work Email</label>
-                  <input type="email" id="email" className={styles.formInput} placeholder="srinivas@company.com" required />
+                  <input type="email" id="email" className={styles.formInput} placeholder="john.doe@company.com" required />
                 </div>
                 
                 <div className={styles.formGroup}>

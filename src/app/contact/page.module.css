@@ -3,15 +3,140 @@
   min-height: 100vh;
 }
 
-.pageTitle {
-  font-size: 3.5rem;
-  text-align: center;
-  margin-bottom: 4rem;
+.contactLayout {
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 5rem;
+  align-items: flex-start;
 }
 
-.contactWrapper {
-  max-width: 600px;
-  margin: 0 auto;
+.infoColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(0, 255, 194, 0.05);
+  border: 1px solid rgba(0, 255, 194, 0.15);
+  color: var(--accent-primary);
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.75rem;
+}
+
+.pageTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.pageSubtitle {
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+  width: 100%;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.infoIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-primary);
+}
+
+.infoItem h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.infoItem p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Timeline Process Steps */
+.steps {
+  border-top: 1px solid var(--glass-border);
+  padding-top: 3rem;
+  width: 100%;
+}
+
+.steps h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.stepsList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.stepsList li {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.stepNumber {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #a78bfa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.stepsList strong {
+  color: var(--text-primary);
+}
+
+/* Contact Form */
+.formTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
 }
 
 .contactForm {
@@ -26,26 +151,42 @@
   gap: 0.5rem;
 }
 
-.formGroup label {
-  font-weight: 500;
-  color: var(--text-primary);
+.formLabel {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.formGroup input,
-.formGroup textarea {
-  width: 100%;
-  padding: 1rem;
-  border-radius: 8px;
+.formInput, .formTextarea {
+  background: rgba(0, 0, 0, 0.25);
   border: 1px solid var(--glass-border);
-  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
   color: var(--text-primary);
   font-family: var(--font-inter), sans-serif;
+  font-size: 0.95rem;
   transition: var(--transition);
 }
 
-.formGroup input:focus,
-.formGroup textarea:focus {
+.formInput:focus, .formTextarea:focus {
   outline: none;
   border-color: var(--accent-primary);
-  box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 255, 194, 0.12);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 992px) {
+  .contactLayout {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 2.75rem;
+  }
 }

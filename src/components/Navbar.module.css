@@ -1,14 +1,26 @@
 .navbar {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(10, 15, 26, 0.8);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--glass-border);
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 3rem);
+  max-width: 1100px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
   z-index: 1000;
-  padding: 1rem 0;
+  padding: 0.6rem 2rem;
+  transition: var(--transition);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.navbar:hover {
+  border-color: rgba(0, 255, 194, 0.15);
+  box-shadow: 
+    0 10px 35px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(0, 255, 194, 0.03);
 }
 
 .navContainer {
@@ -18,33 +30,101 @@
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.logoIcon {
+  color: var(--accent-primary);
+  transition: var(--transition);
+}
+
+.logo:hover .logoIcon {
+  transform: rotate(5deg) scale(1.05);
+  filter: drop-shadow(0 0 8px var(--accent-primary));
+}
+
+.logoText {
   font-family: var(--font-outfit), sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
 }
 
 .navLinks {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 2.25rem;
   align-items: center;
 }
 
-.navLinks a:not(.btn-primary) {
+.navLink {
   font-family: var(--font-inter), sans-serif;
-  font-size: 1rem;
-  color: var(--text-secondary);
-  transition: var(--transition);
+  font-size: 0.95rem;
   font-weight: 500;
+  color: var(--text-secondary);
+  position: relative;
+  padding: 0.25rem 0;
+  transition: var(--transition);
 }
 
-.navLinks a:not(.btn-primary):hover {
-  color: var(--accent-primary);
+.navLink:hover {
+  color: var(--text-primary);
+}
+
+/* Underline slide animation */
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-text);
+  transition: var(--transition);
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.contactBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-text);
+  color: #040508;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(0, 255, 194, 0.15);
+}
+
+.contactBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 255, 194, 0.35);
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    top: 1rem;
+    width: calc(100% - 2rem);
+    padding: 0.6rem 1.25rem;
+  }
   .navLinks {
-    display: none; /* In a full build, we'd add a hamburger menu here */
+    gap: 1rem;
+  }
+  /* On mobile, we keep links simple or hide them, let's keep home/services/contact visible to avoid hamburger complexity */
+  .navLinks li:nth-child(3) {
+    display: none; /* Hide About Us on small mobile to fit */
+  }
+  .logoText {
+    font-size: 1.15rem;
   }
 }

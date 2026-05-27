@@ -1,39 +1,101 @@
 import styles from "./page.module.css";
 
 export const metadata = {
-  title: "Contact Us | SamyugTech",
-  description: "Get in touch with SamyugTech for cloud consulting and DevOps automation.",
+  title: "Contact Us | SamyugTech Cloud Consulting",
+  description: "Get in touch with SamyugTech to schedule a cloud strategy consultation or ask about our DevOps automation services.",
 };
 
 export default function Contact() {
   return (
     <div className={styles.pageContainer}>
       <div className="container">
-        <h1 className={styles.pageTitle}>Get in <span className="text-gradient">Touch</span></h1>
-        
-        <div className={styles.contactWrapper}>
-          <div className="glass-panel">
-            <h2>Let's build your cloud strategy.</h2>
-            <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>
-              Fill out the form below and our global consulting team will get back to you within 24 hours.
+        <div className={styles.contactLayout}>
+          
+          {/* Contact Info (Left) */}
+          <div className={styles.infoColumn}>
+            <div className={styles.badge}>
+              <span className="glow-dot"></span>
+              Secure Connection
+            </div>
+            <h1 className={styles.pageTitle}>Let's Build Your <span className="text-gradient">Cloud Strategy</span></h1>
+            <p className={styles.pageSubtitle}>
+              Whether you need to containerize workloads, scale Kubernetes networks, or prepare for security audits, our engineering team is here to design and implement your solution.
             </p>
-            
-            <form className={styles.contactForm}>
-              <div className={styles.formGroup}>
-                <label htmlFor="name">Full Name</label>
-                <input type="text" id="name" placeholder="John Doe" required />
+
+            <div className={styles.infoList}>
+              <div className={styles.infoItem}>
+                <div className={styles.infoIcon}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </div>
+                <div>
+                  <h4>Email Us Directly</h4>
+                  <p>consulting@samyugtech.com</p>
+                </div>
               </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="email">Work Email</label>
-                <input type="email" id="email" placeholder="john@company.com" required />
+
+              <div className={styles.infoItem}>
+                <div className={styles.infoIcon}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </div>
+                <div>
+                  <h4>SLA Guarantee</h4>
+                  <p>We review and respond to inquiries within 12 business hours.</p>
+                </div>
               </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="message">How can we help?</label>
-                <textarea id="message" rows="5" placeholder="Tell us about your cloud infrastructure needs..." required></textarea>
-              </div>
-              <button type="submit" className="btn-primary" style={{ width: '100%' }}>Send Message</button>
-            </form>
+            </div>
+
+            <div className={styles.steps}>
+              <h3>What Happens Next?</h3>
+              <ul className={styles.stepsList}>
+                <li>
+                  <span className={styles.stepNumber}>1</span>
+                  <strong>Discovery Call</strong> — We align on scope, tools, and topology.
+                </li>
+                <li>
+                  <span className={styles.stepNumber}>2</span>
+                  <strong>Architecture Outline</strong> — We provide a high-level proposal.
+                </li>
+                <li>
+                  <span className={styles.stepNumber}>3</span>
+                  <strong>Execution Plan</strong> — We begin writing your infrastructure playbooks.
+                </li>
+              </ul>
+            </div>
           </div>
+
+          {/* Contact Form (Right) */}
+          <div className={styles.formColumn}>
+            <div className="glass-panel">
+              <h2 className={styles.formTitle}>Initiate Consultation</h2>
+              <form className={styles.contactForm}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="name" className={styles.formLabel}>Full Name</label>
+                  <input type="text" id="name" className={styles.formInput} placeholder="Srinivas Yenuganti" required />
+                </div>
+                
+                <div className={styles.formGroup}>
+                  <label htmlFor="email" className={styles.formLabel}>Work Email</label>
+                  <input type="email" id="email" className={styles.formInput} placeholder="srinivas@company.com" required />
+                </div>
+                
+                <div className={styles.formGroup}>
+                  <label htmlFor="message" className={styles.formLabel}>How can we assist?</label>
+                  <textarea id="message" className={styles.formTextarea} rows="5" placeholder="Specify cloud provider, scope, and engineering timelines..." required></textarea>
+                </div>
+
+                <button type="submit" className="btn-primary" style={{ width: '100%', marginTop: '1rem' }}>
+                  Send Secure Request
+                </button>
+              </form>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

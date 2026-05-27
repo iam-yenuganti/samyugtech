@@ -3,32 +3,112 @@
   min-height: 100vh;
 }
 
+.pageHeader {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 5rem;
+}
+
 .pageTitle {
   font-size: 3.5rem;
-  text-align: center;
-  margin-bottom: 4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.pageSubtitle {
+  color: var(--text-secondary);
+  font-size: 1.25rem;
+  line-height: 1.6;
 }
 
 .contentGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  margin-bottom: 6rem;
 }
 
-.contentGrid h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: var(--text-primary);
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1rem;
 }
 
-.contentGrid p {
+.cardHeader h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.cardText {
   color: var(--text-secondary);
-  font-size: 1.125rem;
-  line-height: 1.8;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* Operational Pillars */
+.pillarsSection {
+  border-top: 1px solid var(--glass-border);
+  padding-top: 5rem;
+}
+
+.pillarsTitle {
+  font-size: 2.25rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.pillarCard {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: var(--transition);
+}
+
+.pillarCard:hover {
+  border-color: rgba(0, 255, 194, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 255, 194, 0.04);
+}
+
+.pillarCard h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.pillarCard p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .pillarsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .contentGrid {
-    grid-template-columns: 1fr;
+  .pageTitle {
+    font-size: 2.75rem;
   }
 }

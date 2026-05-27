@@ -1,14 +1,15 @@
 :root {
-  --bg-color: #050a15; /* Deep Space Navy */
-  --text-primary: #F0F4F8; /* Soft White */
-  --text-secondary: #9BA4B5; /* Cool Gray */
-  --accent-primary: #00F0FF; /* Cyber Neon Blue */
-  --accent-secondary: #7A00FF; /* Deep Neon Purple */
-  --glass-bg: rgba(255, 255, 255, 0.02);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --card-bg: #0d1424;
-  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  --gradient-text: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  --bg-color: #040508; /* Dark Obsidian Space */
+  --card-bg: #090b11; /* Sleek Dark Metallic */
+  --text-primary: #ffffff; /* Crisp White */
+  --text-secondary: #8e9bae; /* Soft Slate */
+  --accent-primary: #00ffc2; /* Cyber Cyan */
+  --accent-secondary: #8b5cf6; /* Royal Violet */
+  --glass-bg: rgba(9, 11, 17, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --gradient-text: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  --accent-glow: rgba(0, 255, 194, 0.12);
 }
 
 * {
@@ -19,6 +20,12 @@
 
 body {
   background-color: var(--bg-color);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.06) 0, transparent 40%),
+    radial-gradient(at 100% 0%, rgba(0, 255, 194, 0.04) 0, transparent 45%),
+    linear-gradient(rgba(255, 255, 255, 0.007) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.007) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
   color: var(--text-primary);
   font-family: var(--font-inter), sans-serif;
   line-height: 1.6;
@@ -32,6 +39,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 1rem;
+  letter-spacing: -0.01em;
 }
 
 a {
@@ -45,45 +53,91 @@ a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  display: inline-block;
 }
 
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  padding: 2rem;
+  border-radius: 20px;
+  padding: 2.5rem;
   transition: var(--transition);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+  pointer-events: none;
 }
 
 .glass-panel:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.1);
+  transform: translateY(-6px);
+  border-color: rgba(0, 255, 194, 0.25);
+  box-shadow: 
+    0 12px 40px 0 rgba(0, 0, 0, 0.45),
+    0 0 20px 0 var(--accent-glow);
 }
 
 .btn-primary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--gradient-text);
-  color: #fff;
-  padding: 0.875rem 2rem;
-  border-radius: 999px;
+  color: #040508;
+  padding: 0.95rem 2.25rem;
+  border-radius: 99px;
   font-family: var(--font-outfit), sans-serif;
   font-weight: 600;
+  font-size: 1rem;
   border: none;
   cursor: pointer;
   transition: var(--transition);
-  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 255, 194, 0.22);
 }
 
 .btn-primary:hover {
-  box-shadow: 0 6px 20px rgba(0, 240, 255, 0.4);
-  transform: scale(1.02);
+  box-shadow: 0 8px 30px rgba(0, 255, 194, 0.45);
+  transform: translateY(-2px);
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+/* Subtle glowing accent dot utility */
+.glow-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-primary);
+  margin-right: 8px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #040508;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1f2e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
 }

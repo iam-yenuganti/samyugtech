@@ -9,18 +9,21 @@ export default function Footer() {
           <Link href="/" className={styles.logo}>
             <svg
               className={styles.logoIcon}
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
+              width="28"
+              height="28"
+              viewBox="0 0 32 32"
               fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <polygon points="12 2 2 7 12 12 22 7 12 2" />
-              <polyline points="2 17 12 22 22 17" />
-              <polyline points="2 12 12 17 22 12" />
+              <defs>
+                <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#00ffc2" />
+                  <stop offset="100%" stopColor="#8b5cf6" />
+                </linearGradient>
+              </defs>
+              <path d="M16 2C8.268 2 2 8.268 2 16c0 3.08.993 5.93 2.684 8.25" stroke="url(#footerLogoGrad)" strokeWidth="2.5" strokeLinecap="round"/>
+              <path d="M30 16c0 7.732-6.268 14-14 14-3.08 0-5.93-.993-8.25-2.684" stroke="url(#footerLogoGrad)" strokeWidth="2.5" strokeLinecap="round"/>
+              <path d="M12 12c0-1.657 1.343-3 3-3h2a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3h-2a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h2c1.657 0 3-1.343 3-3" stroke="url(#footerLogoGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
             <span className={styles.logoText}>
               <span className="text-gradient">Samyug</span>Tech™

@@ -10,7 +10,7 @@ export default function About() {
     <div className={styles.pageContainer}>
       <div className="container">
         <div className={styles.pageHeader}>
-          <h1 className={styles.pageTitle}>About <span className="text-gradient">SamyugTech</span></h1>
+          <h1 className={styles.pageTitle}>About <span className="text-gradient">SamyugTech™</span></h1>
           <p className={styles.pageSubtitle}>
             Providing secure cloud architecture, infrastructure reliability engineering, and migration expertise to global businesses.
           </p>

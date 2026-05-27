@@ -23,7 +23,7 @@ export default function Footer() {
               <polyline points="2 12 12 17 22 12" />
             </svg>
             <span className={styles.logoText}>
-              <span className="text-gradient">Samyug</span>Tech
+              <span className="text-gradient">Samyug</span>Tech™
             </span>
           </Link>
           <p className={styles.brandDesc}>
@@ -68,7 +68,7 @@ export default function Footer() {
       </div>
       <div className={styles.footerBottom}>
         <div className={`container ${styles.bottomContainer}`}>
-          <p>&copy; {new Date().getFullYear()} SamyugTech. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} SamyugTech™. All rights reserved.</p>
           <p className={styles.securityText}>🛡️ Built to ISO 27001 & SOC2 Standards</p>
         </div>
       </div>

@@ -22,7 +22,7 @@ export default function Navbar() {
             <polyline points="2 12 12 17 22 12" />
           </svg>
           <span className={styles.logoText}>
-            <span className="text-gradient">Samyug</span>Tech
+            <span className="text-gradient">Samyug</span>Tech™
           </span>
         </Link>
         

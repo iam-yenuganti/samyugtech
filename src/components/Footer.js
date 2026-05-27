@@ -21,12 +21,18 @@ export default function Footer() {
                   <stop offset="100%" stopColor="#8b5cf6" />
                 </linearGradient>
               </defs>
-              <path d="M16 2C8.268 2 2 8.268 2 16c0 3.08.993 5.93 2.684 8.25" stroke="url(#footerLogoGrad)" strokeWidth="2.5" strokeLinecap="round"/>
-              <path d="M30 16c0 7.732-6.268 14-14 14-3.08 0-5.93-.993-8.25-2.684" stroke="url(#footerLogoGrad)" strokeWidth="2.5" strokeLinecap="round"/>
-              <path d="M12 12c0-1.657 1.343-3 3-3h2a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3h-2a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h2c1.657 0 3-1.343 3-3" stroke="url(#footerLogoGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <line x1="16" y1="9" x2="9" y2="21" stroke="url(#footerLogoGrad)" strokeWidth="2.5" strokeLinecap="round" />
+              <line x1="16" y1="9" x2="23" y2="21" stroke="url(#footerLogoGrad)" strokeWidth="2.5" strokeLinecap="round" />
+              <line x1="9" y1="21" x2="23" y2="21" stroke="url(#footerLogoGrad)" strokeWidth="2.5" strokeLinecap="round" />
+              <circle cx="16" cy="9" r="4.5" fill="#040508" stroke="url(#footerLogoGrad)" strokeWidth="2.5" />
+              <circle cx="9" cy="21" r="4.5" fill="#040508" stroke="url(#footerLogoGrad)" strokeWidth="2.5" />
+              <circle cx="23" cy="21" r="4.5" fill="#040508" stroke="url(#footerLogoGrad)" strokeWidth="2.5" />
+              <circle cx="16" cy="9" r="1.5" fill="var(--accent-primary)" />
+              <circle cx="9" cy="21" r="1.5" fill="var(--accent-primary)" />
+              <circle cx="23" cy="21" r="1.5" fill="var(--accent-secondary)" />
             </svg>
             <span className={styles.logoText}>
-              <span className="text-gradient">Samyug</span>Tech™
+              samyug<span className="text-gradient">.tech</span>
             </span>
           </Link>
           <p className={styles.brandDesc}>
@@ -71,7 +77,7 @@ export default function Footer() {
       </div>
       <div className={styles.footerBottom}>
         <div className={`container ${styles.bottomContainer}`}>
-          <p>&copy; {new Date().getFullYear()} SamyugTech™. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} samyug.tech. All rights reserved.</p>
           <p className={styles.securityText}>🛡️ Built to ISO 27001 & SOC2 Standards</p>
         </div>
       </div>

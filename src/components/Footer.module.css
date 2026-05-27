@@ -1,0 +1,67 @@
+.footer {
+  background: var(--card-bg);
+  border-top: 1px solid var(--glass-border);
+  padding: 4rem 0 0 0;
+  margin-top: 4rem;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
+
+.logo {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.footerBrand p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.footerLinks h3 {
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.footerLinks ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footerLinks li {
+  margin-bottom: 0.75rem;
+}
+
+.footerLinks a {
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.footerLinks a:hover {
+  color: var(--accent-primary);
+}
+
+.footerBottom {
+  text-align: center;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

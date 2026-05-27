@@ -1,66 +1,44 @@
-import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className={styles.homeContainer}>
+      {/* Hero Section */}
+      <section className={styles.hero}>
+        <div className="container">
+          <h1 className={styles.heroTitle}>
+            End-to-End <span className="text-gradient">Cloud & DevOps</span> Automation
+          </h1>
+          <p className={styles.heroSubtitle}>
+            Empowering global enterprises with cutting-edge DevSecOps, seamless migrations, and secure architecture across AWS, Azure, and GCP.
           </p>
+          <div className={styles.heroActions}>
+            <a href="/services" className="btn-primary">Explore Services</a>
+            <a href="/contact" className={styles.btnOutline}>Get a Consultation</a>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Core Services Section */}
+      <section className={styles.servicesSection}>
+        <div className="container">
+          <h2 className={styles.sectionTitle}>Our Core Expertise</h2>
+          <div className={styles.servicesGrid}>
+            <div className="glass-panel">
+              <h3>☁️ Cloud Consulting</h3>
+              <p>Strategic architecture and seamless migration across AWS, Azure, and Google Cloud Platform.</p>
+            </div>
+            <div className="glass-panel">
+              <h3>⚙️ DevOps Automation</h3>
+              <p>Robust CI/CD pipelines and Infrastructure as Code to accelerate your delivery.</p>
+            </div>
+            <div className="glass-panel">
+              <h3>🔒 DevSecOps</h3>
+              <p>Integrating security natively into your pipelines to ensure international compliance standards.</p>
+            </div>
+          </div>
         </div>
-      </main>
+      </section>
     </div>
   );
 }

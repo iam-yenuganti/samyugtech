@@ -2,7 +2,7 @@ import styles from "./page.module.css";
 
 export const metadata = {
   title: "Contact Us | SamyugTech Cloud Consulting",
-  description: "Get in touch with SamyugTech to schedule a cloud strategy consultation or ask about our DevOps automation services.",
+  description: "Get in touch with SamyugTech to schedule an AIOps audit, plan an LLM deployment, or consult on vector databases.",
 };
 
 export default function Contact() {
@@ -17,9 +17,9 @@ export default function Contact() {
               <span className="glow-dot"></span>
               Secure Connection
             </div>
-            <h1 className={styles.pageTitle}>Let's Build Your <span className="text-gradient">Cloud Strategy</span></h1>
+            <h1 className={styles.pageTitle}>Let's Build Your <span className="text-gradient">AI Scale Plan</span></h1>
             <p className={styles.pageSubtitle}>
-              Whether you need to containerize workloads, scale Kubernetes networks, or prepare for security audits, our engineering team is here to design and implement your solution.
+              Whether you need to configure PGVector staging, optimize GPU node cluster configurations, or prepare for LLM compliance audits, our engineering team will design your topology.
             </p>
 
             <div className={styles.infoList}>
@@ -55,15 +55,15 @@ export default function Contact() {
               <ul className={styles.stepsList}>
                 <li>
                   <span className={styles.stepNumber}>1</span>
-                  <strong>Discovery Call</strong> — We align on scope, tools, and topology.
+                  <strong>Discovery & Scale Call</strong> — We align on LLMOps, vector databases, and node scale parameters.
                 </li>
                 <li>
                   <span className={styles.stepNumber}>2</span>
-                  <strong>Architecture Outline</strong> — We provide a high-level proposal.
+                  <strong>Architecture Outline</strong> — We provide a high-level GPU cluster and compliance map.
                 </li>
                 <li>
                   <span className={styles.stepNumber}>3</span>
-                  <strong>Execution Plan</strong> — We begin writing your infrastructure playbooks.
+                  <strong>Execution Plan</strong> — We begin writing your infrastructure playbooks and container scripts.
                 </li>
               </ul>
             </div>
@@ -86,7 +86,7 @@ export default function Contact() {
                 
                 <div className={styles.formGroup}>
                   <label htmlFor="message" className={styles.formLabel}>How can we assist?</label>
-                  <textarea id="message" className={styles.formTextarea} rows="5" placeholder="Specify cloud provider, scope, and engineering timelines..." required></textarea>
+                  <textarea id="message" className={styles.formTextarea} rows="5" placeholder="Specify AI models, vector database options, expected load scale, and engineering timelines..." required></textarea>
                 </div>
 
                 <button type="submit" className="btn-primary" style={{ width: '100%', marginTop: '1rem' }}>

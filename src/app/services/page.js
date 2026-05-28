@@ -2,7 +2,7 @@ import styles from "./page.module.css";
 
 export const metadata = {
   title: "Services | SamyugTech Cloud Consulting",
-  description: "Explore our Cloud Consulting, DevOps Automation, and DevSecOps services designed for global scale.",
+  description: "Explore our AIOps consulting, LLMOps pipelines, and AI DevSecOps services designed for global scale.",
 };
 
 export default function Services() {
@@ -12,12 +12,12 @@ export default function Services() {
         <div className={styles.pageHeader}>
           <h1 className={styles.pageTitle}>Our <span className="text-gradient">Specializations</span></h1>
           <p className={styles.pageSubtitle}>
-            We design, build, and secure cloud infrastructures using modern patterns, enabling seamless software delivery cycles.
+            We design, scale, and secure AI workloads on multi-cloud environments, enabling reliable model delivery and autonomous system maintenance.
           </p>
         </div>
 
         <div className={styles.servicesList}>
-          {/* Service 1 - Cloud Architecture */}
+          {/* Service 1 - AIOps */}
           <div className={`${styles.serviceItem} glass-panel`}>
             <div className={styles.serviceHeader}>
               <div className={styles.iconBox}>
@@ -25,11 +25,11 @@ export default function Services() {
                   <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
                 </svg>
               </div>
-              <h2>Cloud Architecture & Migration</h2>
+              <h2>AIOps & Smart Infrastructure</h2>
             </div>
             
             <p className={styles.serviceDesc}>
-              We architect resilient, highly available topologies across AWS, Azure, and Google Cloud. Our cloud migration service moves workloads with zero business disruption using well-architected framework reviews.
+              Move beyond manual incident triage. We build predictive telemetry systems, launch self-repairing EKS/GKE cluster topologies, and use load-forecasting metrics to scale and optimize your multi-cloud hosting costs.
             </p>
 
             <ul className={styles.featureList}>
@@ -37,31 +37,31 @@ export default function Services() {
                 <svg className={styles.checkIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
-                Multi-cloud and hybrid networking design
+                Auto-triage and self-repairing Kubernetes nodes
               </li>
               <li>
                 <svg className={styles.checkIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
-                Workload migration & data synchronization
+                Predictive system resource loading models
               </li>
               <li>
                 <svg className={styles.checkIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
-                Cost optimization and serverless design
+                Dynamically scaled GPU cluster optimization
               </li>
             </ul>
 
             <div className={styles.techStack}>
-              <span className={styles.techBadge}>AWS</span>
-              <span className={styles.techBadge}>Azure</span>
-              <span className={styles.techBadge}>GCP</span>
-              <span className={styles.techBadge}>Serverless</span>
+              <span className={styles.techBadge}>AIOps</span>
+              <span className={styles.techBadge}>Kubernetes</span>
+              <span className={styles.techBadge}>Vertex AI</span>
+              <span className={styles.techBadge}>GPU Scaling</span>
             </div>
           </div>
 
-          {/* Service 2 - DevOps */}
+          {/* Service 2 - LLMOps */}
           <div className={`${styles.serviceItem} glass-panel`}>
             <div className={styles.serviceHeader}>
               <div className={styles.iconBox}>
@@ -71,11 +71,11 @@ export default function Services() {
                   <path d="M12 8v8" />
                 </svg>
               </div>
-              <h2>DevOps & CI/CD Orchestration</h2>
+              <h2>LLMOps & AI Agent Integration</h2>
             </div>
             
             <p className={styles.serviceDesc}>
-              Automate your testing, compilation, and environment provisioning. We treat infrastructure as code and run stateless container schedulers to build resilient, automated delivery loops.
+              Streamline model fine-tuning and host foundation models reliably. We design fast pipelines for embeddings generation, manage vector database architectures (Milvus, Pinecone, pgvector), and scale secure containerized AI Agent networks.
             </p>
 
             <ul className={styles.featureList}>
@@ -83,31 +83,31 @@ export default function Services() {
                 <svg className={styles.checkIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
-                Declarative Infrastructure as Code (IaC)
+                Embedding pipeline and vector storage layout (PGVector/Milvus)
               </li>
               <li>
                 <svg className={styles.checkIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
-                Kubernetes cluster operations & deployment automation
+                Model registry, fine-tuning scripts, and weights updates
               </li>
               <li>
                 <svg className={styles.checkIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
-                Stateless runner pools & GitHub/GitLab pipelines
+                Secure multi-agent network orchestration in Kubernetes
               </li>
             </ul>
 
             <div className={styles.techStack}>
-              <span className={styles.techBadge}>Terraform</span>
-              <span className={styles.techBadge}>Kubernetes</span>
-              <span className={styles.techBadge}>Helm</span>
-              <span className={styles.techBadge}>GitHub Actions</span>
+              <span className={styles.techBadge}>LLMOps</span>
+              <span className={styles.techBadge}>Milvus / Pinecone</span>
+              <span className={styles.techBadge}>PGVector</span>
+              <span className={styles.techBadge}>LangChain / LlamaIndex</span>
             </div>
           </div>
 
-          {/* Service 3 - DevSecOps */}
+          {/* Service 3 - AI DevSecOps */}
           <div className={`${styles.serviceItem} glass-panel`}>
             <div className={styles.serviceHeader}>
               <div className={styles.iconBox}>
@@ -115,11 +115,11 @@ export default function Services() {
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
               </div>
-              <h2>DevSecOps & Compliance</h2>
+              <h2>AI DevSecOps & Governance</h2>
             </div>
             
             <p className={styles.serviceDesc}>
-              Inject compliance guidelines at runtime. We deploy automated image linters, vault stores for secrets management, and network policies to secure your data and pass SOC2/ISO audit gates.
+              Bake data security directly into your model pipelines. We construct automated prompt/input guardrails, safeguard API tokens from leaking, filter sensitive data from model training datasets, and compile compliance audit reports.
             </p>
 
             <ul className={styles.featureList}>
@@ -127,27 +127,27 @@ export default function Services() {
                 <svg className={styles.checkIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
-                Vulnerability scanning & static code analysis (SAST/DAST)
+                Automated model guardrails & prompt injection scanning
               </li>
               <li>
                 <svg className={styles.checkIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
-                Secrets rotation & least-privilege IAM policies
+                PII data filtering for model training compliance
               </li>
               <li>
                 <svg className={styles.checkIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
-                SOC2 / ISO 27001 compliance audit preparation
+                SOC2 / GDPR compliance for AI model host applications
               </li>
             </ul>
 
             <div className={styles.techStack}>
-              <span className={styles.techBadge}>HashiCorp Vault</span>
-              <span className={styles.techBadge}>Trivy</span>
-              <span className={styles.techBadge}>SOC2 Auditing</span>
-              <span className={styles.techBadge}>IAM Policies</span>
+              <span className={styles.techBadge}>Model Guardrails</span>
+              <span className={styles.techBadge}>GDPR Compliance</span>
+              <span className={styles.techBadge}>Vault Store</span>
+              <span className={styles.techBadge}>AI Auditing</span>
             </div>
           </div>
         </div>

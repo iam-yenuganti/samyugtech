@@ -2,7 +2,7 @@ import styles from "./page.module.css";
 
 export const metadata = {
   title: "About Us | SamyugTech Cloud Consulting",
-  description: "Learn about our vision, core values, and expertise in global cloud automation and DevOps governance.",
+  description: "Learn about our vision, core values, and expertise in AIOps, LLMOps pipelines, and secure model governance.",
 };
 
 export default function About() {
@@ -12,7 +12,7 @@ export default function About() {
         <div className={styles.pageHeader}>
           <h1 className={styles.pageTitle}>About <span className="text-gradient">samyug.tech</span></h1>
           <p className={styles.pageSubtitle}>
-            Providing secure cloud architecture, infrastructure reliability engineering, and migration expertise to global businesses.
+            Providing secure cloud architecture, autonomous infrastructure reliability engineering, and LLMOps integration for global businesses.
           </p>
         </div>
 
@@ -26,7 +26,7 @@ export default function About() {
               <h2>Our Mission</h2>
             </div>
             <p className={styles.cardText}>
-              To serve as the premier engineering partner for enterprises scaling operations. We believe in treating infrastructure strictly as code, removing manual deployment gates, and baking security and validation tests natively into every lifecycle stage.
+              To serve as the premier engineering partner for enterprises building intelligent platforms. We believe in treating model pipelines and vector storage as version-controlled code, removing manual deployment gates, and baking AIOps self-healing triggers directly into EKS and GKE runtimes.
             </p>
           </div>
 
@@ -37,10 +37,10 @@ export default function About() {
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                 <path d="M7 11V7a5 5 0 0 1 10 0v4" />
               </svg>
-              <h2>Global Standards</h2>
+              <h2>Model & Data Governance</h2>
             </div>
             <p className={styles.cardText}>
-              Operating internationally requires rigorous data protection controls and operational governance. We build infrastructures to meet SOC2, ISO 27001, and HIPAA compliance policies, ensuring your platform is secure and auditable.
+              Hosting generative AI models requires rigorous data protection controls. We design model hosting architectures to comply with SOC2, GDPR, and HIPAA compliance policies, ensuring training datasets and API communication remain encrypted.
             </p>
           </div>
         </div>
@@ -50,16 +50,16 @@ export default function About() {
           <h2 className={styles.pillarsTitle}>Our Core Pillars</h2>
           <div className={styles.pillarsGrid}>
             <div className={styles.pillarCard}>
-              <h3>01 / Security First</h3>
-              <p>Security is integrated at the code level, not added as a perimeter filter afterward.</p>
+              <h3>01 / AIOps-First Systems</h3>
+              <p>We deploy telemetry models that auto-detect failures, forecast scale, and self-heal cloud topologies.</p>
             </div>
             <div className={styles.pillarCard}>
-              <h3>02 / Infrastructure as Code</h3>
-              <p>All cloud resources are declared and version-controlled. No manual environment setups.</p>
+              <h3>02 / LLMOps Infrastructure</h3>
+              <p>All foundation models, fine-tuning configurations, and vector indices are maintained as reproducible code.</p>
             </div>
             <div className={styles.pillarCard}>
-              <h3>03 / Absolute Automation</h3>
-              <p>If a task is performed more than twice, we write a script, playbook, or action workflow to automate it.</p>
+              <h3>03 / Privacy Guardrails</h3>
+              <p>Real-time prompt scanners and PII database filters safeguard model prompts from leaking credentials.</p>
             </div>
           </div>
         </div>

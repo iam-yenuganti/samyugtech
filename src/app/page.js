@@ -10,20 +10,20 @@ export default function Home() {
           <div className={styles.heroLeft}>
             <div className={styles.badge}>
               <span className="glow-dot"></span>
-              Enterprise-Grade Cloud Automation
+              Enterprise AIOps & Intelligent Cloud
             </div>
             <h1 className={styles.heroTitle}>
-              Accelerate Software Delivery with <span className="text-gradient">Secure DevOps</span>
+              Orchestrate Intelligent <span className="text-gradient">Cloud & LLMOps</span>
             </h1>
             <p className={styles.heroSubtitle}>
-              Empowering global enterprises with automated CI/CD pipelines, robust Infrastructure as Code (IaC), and secure DevSecOps architectures across AWS, Azure, and GCP.
+              Scale your software delivery with automated AI agent pipelines, self-healing cloud architectures, and robust LLMOps staging environments across AWS, Azure, and GCP.
             </p>
             <div className={styles.heroActions}>
               <Link href="/services" className="btn-primary">
-                Explore Our Services
+                Explore AI Services
               </Link>
               <Link href="/contact" className={styles.btnOutline}>
-                Book a Consultation
+                Schedule AI Audit
               </Link>
             </div>
           </div>
@@ -35,21 +35,21 @@ export default function Home() {
                 <span className={styles.dotRed}></span>
                 <span className={styles.dotYellow}></span>
                 <span className={styles.dotGreen}></span>
-                <span className={styles.terminalTitle}>bash - samyugtech-pipeline</span>
+                <span className={styles.terminalTitle}>bash - samyug-ai-agent-deploy</span>
               </div>
               <div className={styles.terminalBody}>
-                <div className={styles.termRow}><span className={styles.termPrompt}>$</span> npm run test:security</div>
-                <div className={`${styles.termRow} ${styles.termSuccess}`}>✓ 12 security rules checked. 0 vulnerabilities found.</div>
+                <div className={styles.termRow}><span className={styles.termPrompt}>$</span> samyug-ai deploy-agent --model gemma-2b</div>
+                <div className={`${styles.termRow} ${styles.termSuccess}`}>✓ Verifying cluster state on aws_eks_cluster.prod</div>
                 
-                <div className={styles.termRow}><span className={styles.termPrompt}>$</span> terraform apply -auto-approve</div>
-                <div className={styles.termRow}>aws_eks_cluster.prod: Creating...</div>
-                <div className={styles.termRow}>aws_eks_cluster.prod: Still creating... [10s elapsed]</div>
-                <div className={`${styles.termRow} ${styles.termSuccess}`}>aws_eks_cluster.prod: Creation complete [ID: prod-cluster]</div>
-                <div className={`${styles.termRow} ${styles.termInfo}`}>Apply complete! Resources: 8 added, 0 changed, 0 destroyed.</div>
+                <div className={styles.termRow}><span className={styles.termPrompt}>$</span> samyug-ai init-vectordb --type pgvector</div>
+                <div className={styles.termRow}>Connecting to RDS Postgres instance...</div>
+                <div className={styles.termRow}>Running migration: pgvector extension loaded.</div>
+                <div className={`${styles.termRow} ${styles.termSuccess}`}>✓ Vector database initialized [PGVector: live]</div>
                 
-                <div className={styles.termRow}><span className={styles.termPrompt}>$</span> helm upgrade --install samyug-app ./charts</div>
-                <div className={styles.termRow}>Release "samyug-app" has been upgraded. Status: deployed</div>
-                <div className={`${styles.termRow} ${styles.termHighlight}`}>🚀 Deployment Success! Domain live at https://samyugtech.com</div>
+                <div className={styles.termRow}><span className={styles.termPrompt}>$</span> samyug-ai enforce-guardrails --model gemma-2b</div>
+                <div className={`${styles.termRow} ${styles.termInfo}`}>✓ Input guardrails enabled (SOC2 and GDPR compliance verified)</div>
+                <div className={styles.termRow}>Deploying autonomous replica sets...</div>
+                <div className={`${styles.termRow} ${styles.termHighlight}`}>🚀 AI Agent Deployment Success! Live API at https://samyugtech.com</div>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function Home() {
       {/* Cloud & Tech Badges Section */}
       <section className={styles.trustSection}>
         <div className="container">
-          <p className={styles.trustTitle}>Supported Ecosystems & Technologies</p>
+          <p className={styles.trustTitle}>Supported Ecosystems & AI Architectures</p>
           <div className={styles.badgeGrid}>
             <div className={styles.techBadge} title="Amazon Web Services">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -74,7 +74,7 @@ export default function Home() {
                 <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
                 <line x1="4" y1="22" x2="4" y2="15" />
               </svg>
-              <span>Azure</span>
+              <span>Azure AI</span>
             </div>
             <div className={styles.techBadge} title="Google Cloud Platform">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -82,13 +82,21 @@ export default function Home() {
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
               </svg>
-              <span>Google Cloud</span>
+              <span>Google Vertex</span>
             </div>
-            <div className={styles.techBadge} title="Kubernetes & Containers">
+            <div className={styles.techBadge} title="AI & LLMOps Frameworks">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <circle cx="12" cy="5" r="2.5" />
+                <circle cx="5" cy="12" r="2.5" />
+                <circle cx="19" cy="12" r="2.5" />
+                <circle cx="12" cy="19" r="2.5" />
+                <line x1="12" y1="7.5" x2="12" y2="16.5" />
+                <line x1="6.77" y1="13.77" x2="10.23" y2="17.23" />
+                <line x1="17.23" y1="13.77" x2="13.77" y2="17.23" />
+                <line x1="6.77" y1="10.23" x2="10.23" y2="6.77" />
+                <line x1="17.23" y1="10.23" x2="13.77" y2="6.77" />
               </svg>
-              <span>Kubernetes</span>
+              <span>LLMOps</span>
             </div>
           </div>
         </div>
@@ -100,15 +108,15 @@ export default function Home() {
           <div className={styles.metricsGrid}>
             <div className={styles.metricCard}>
               <div className={styles.metricValue}>99.99%</div>
-              <div className={styles.metricLabel}>Infrastructure Uptime</div>
+              <div className={styles.metricLabel}>Autonomous SLA Uptime</div>
             </div>
             <div className={styles.metricCard}>
-              <div className={styles.metricValue}>10M+</div>
-              <div className={styles.metricLabel}>Requests Automated</div>
+              <div className={styles.metricValue}>50M+</div>
+              <div className={styles.metricLabel}>AI Queries Automated</div>
             </div>
             <div className={styles.metricCard}>
-              <div className={styles.metricValue}>250+</div>
-              <div className={styles.metricLabel}>Secure CI/CD Deployments</div>
+              <div className={styles.metricValue}>500+</div>
+              <div className={styles.metricLabel}>Secure LLM Deployments</div>
             </div>
           </div>
         </div>
@@ -118,9 +126,9 @@ export default function Home() {
       <section className={styles.servicesSection}>
         <div className="container">
           <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Engineered for Modern Scale</h2>
+            <h2 className={styles.sectionTitle}>Engineered for Cognitive Scale</h2>
             <p className={styles.sectionSubtitle}>
-              We construct reliable cloud topologies, deploy zero-downtime integration loops, and verify compliance at run-time.
+              We connect model checkpoints, deploy containerized agent swarms, and verify vector store queries with latency auditing.
             </p>
           </div>
           
@@ -132,9 +140,9 @@ export default function Home() {
                   <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
                 </svg>
               </div>
-              <h3 className={styles.bentoTitle}>Cloud Architecture & Migration</h3>
+              <h3 className={styles.bentoTitle}>AIOps & Self-Healing Cloud</h3>
               <p className={styles.bentoDesc}>
-                Strategic blueprints and lift-and-shift operations across global hyper-scalers (AWS, Azure, GCP). Optimized for cost and high resilience.
+                Real-time predictive telemetry, auto-scaling clusters, and autonomous self-repair systems to keep high-traffic infrastructure online with zero manual triage.
               </p>
             </div>
 
@@ -147,15 +155,15 @@ export default function Home() {
                   <path d="M12 8v8" />
                 </svg>
               </div>
-              <h3 className={styles.bentoTitle}>DevOps & CI/CD Orchestration</h3>
+              <h3 className={styles.bentoTitle}>LLMOps & AI Agent Pipelines</h3>
               <p className={styles.bentoDesc}>
-                Automate testing and deployments using custom Helm charts, GitHub Actions, Terraform workspace management, and Kubernetes container setups.
+                Automate model training stages, manage vector embedding data pipelines, and deploy secure containerized AI Agents utilizing custom Helm and Kubernetes structures.
               </p>
               <div className={styles.bentoTags}>
-                <span className={styles.bentoTag}>Terraform</span>
+                <span className={styles.bentoTag}>PGVector</span>
+                <span className={styles.bentoTag}>LLM Hosting</span>
                 <span className={styles.bentoTag}>Helm</span>
-                <span className={styles.bentoTag}>Actions</span>
-                <span className={styles.bentoTag}>Docker</span>
+                <span className={styles.bentoTag}>EKS/GKE</span>
               </div>
             </div>
 
@@ -166,9 +174,9 @@ export default function Home() {
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
               </div>
-              <h3 className={styles.bentoTitle}>Automated DevSecOps</h3>
+              <h3 className={styles.bentoTitle}>Intelligent DevSecOps & Guardrails</h3>
               <p className={styles.bentoDesc}>
-                Real-time threat modeling, policy-as-code linting, and audit controls built into deployment paths to enforce SOC2 and ISO compliance.
+                Enforce privacy guidelines, detect vector injection threats, rotate API access credentials, and run compliance audits to guarantee SOC2/GDPR security.
               </p>
             </div>
           </div>

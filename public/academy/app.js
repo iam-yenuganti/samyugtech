@@ -44,6 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnThemeToggle = document.getElementById("btnThemeToggle");
     const sidebarToggle = document.getElementById("sidebarToggle");
     const appSidebar = document.getElementById("appSidebar");
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const sidebarBackdrop = document.getElementById("sidebarBackdrop");
 
     // Tab buttons
     const tabScenarioBtn = document.getElementById("tabScenarioBtn");
@@ -540,8 +542,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Sidebar Toggle Collapse
         sidebarToggle.addEventListener("click", () => {
-            appSidebar.classList.toggle("collapsed");
+            if (window.matchMedia("(max-width: 768px)").matches) {
+                closeMobileSidebar();
+            } else {
+                appSidebar.classList.toggle("collapsed");
+            }
         });
+
+        // Mobile drawer: open via hamburger, close via backdrop or nav click
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener("click", openMobileSidebar);
+        }
+        if (sidebarBackdrop) {
+            sidebarBackdrop.addEventListener("click", closeMobileSidebar);
+        }
+        sidebarNav.addEventListener("click", (e) => {
+            if (e.target.closest(".day-link-item") &&
+                window.matchMedia("(max-width: 768px)").matches) {
+                closeMobileSidebar();
+            }
+        });
+    }
+
+    function openMobileSidebar() {
+        appSidebar.classList.add("mobile-open");
+        if (sidebarBackdrop) sidebarBackdrop.classList.add("visible");
+    }
+
+    function closeMobileSidebar() {
+        appSidebar.classList.remove("mobile-open");
+        if (sidebarBackdrop) sidebarBackdrop.classList.remove("visible");
     }
 
     function switchTab(tabName) {

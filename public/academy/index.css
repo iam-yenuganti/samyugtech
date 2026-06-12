@@ -390,8 +390,50 @@ body {
 
 .header-left {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+}
+
+.header-titles {
+    display: flex;
     flex-direction: column;
     gap: 4px;
+    min-width: 0;
+}
+
+/* Hamburger menu button (mobile only) */
+.mobile-menu-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-surface-elevated);
+    color: var(--text-primary);
+    border-radius: var(--border-radius-md);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.mobile-menu-btn:hover {
+    border-color: var(--border-color-active);
+}
+
+/* Backdrop behind the mobile sidebar drawer */
+.sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 999;
+}
+
+.sidebar-backdrop.visible {
+    display: block;
 }
 
 .day-badge {
@@ -1524,17 +1566,32 @@ body {
         max-height: none;
     }
 
-    /* Sidebar becomes a slide-in overlay on top of content */
+    /* Show the hamburger to open the curriculum drawer */
+    .mobile-menu-btn {
+        display: inline-flex;
+    }
+
+    /* Sidebar becomes a slide-in drawer hidden off-screen by default */
     .app-sidebar {
         position: fixed;
         top: 0;
         left: 0;
         bottom: 0;
+        width: var(--sidebar-width);
+        max-width: 85vw;
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         z-index: 1000;
         box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
     }
+    /* On mobile the drawer is full width even if the desktop "collapsed"
+       class is still present (collapse is a desktop-only feature). */
     .app-sidebar.collapsed {
-        width: var(--sidebar-collapsed-width);
+        width: var(--sidebar-width);
+        max-width: 85vw;
+    }
+    .app-sidebar.mobile-open {
+        transform: translateX(0);
     }
 }
 

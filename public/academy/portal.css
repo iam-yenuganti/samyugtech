@@ -1,0 +1,297 @@
+/* portal.css — DevOps Learning Portal landing page */
+
+:root {
+    --bg-base: #0a0e1a;
+    --bg-surface: #121a2b;
+    --bg-surface-elevated: #1a2438;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --text-primary: #f5f6fb;
+    --text-secondary: #a3acc2;
+    --text-muted: #6b7693;
+    --color-primary: #7c5cff;
+    --color-primary-glow: rgba(124, 92, 255, 0.30);
+    --color-secondary: #22d3ee;
+    --color-success: #22c55e;
+    --color-warning: #fbbf24;
+    --gradient-brand: linear-gradient(120deg, #7c5cff 0%, #b06bff 45%, #22d3ee 100%);
+    --gradient-accent: linear-gradient(135deg, #7c5cff 0%, #22d3ee 100%);
+    --font-sans: 'Outfit', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --radius-lg: 18px;
+    --radius-md: 12px;
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.light-theme {
+    --bg-base: #eef1f8;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #f6f8fc;
+    --border-color: rgba(17, 24, 39, 0.09);
+    --text-primary: #141b2d;
+    --text-secondary: #4b5571;
+    --text-muted: #8a93ab;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    min-height: 100vh;
+    background-image:
+        radial-gradient(circle at 15% 10%, rgba(124, 92, 255, 0.14), transparent 42%),
+        radial-gradient(circle at 85% 0%, rgba(34, 211, 238, 0.10), transparent 38%);
+    background-attachment: fixed;
+}
+
+.portal-wrapper {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+}
+
+/* Top bar */
+.portal-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 48px;
+}
+
+.portal-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.portal-brand i {
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    filter: drop-shadow(0 0 8px var(--color-primary-glow));
+}
+
+.theme-toggle-btn {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.theme-toggle-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--color-primary);
+}
+
+/* Hero */
+.portal-hero {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.portal-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.portal-hero p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Phase section */
+.phase-block { margin-bottom: 44px; }
+
+.phase-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.phase-heading .phase-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--gradient-accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 14px -4px var(--color-primary-glow);
+}
+
+.phase-heading h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.phase-heading span.phase-sub {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Tool grid */
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 18px;
+}
+
+.tool-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 22px;
+    border-radius: var(--radius-lg);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.tool-card.available {
+    cursor: pointer;
+}
+
+.tool-card.available:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
+    box-shadow: 0 18px 40px -16px var(--color-primary-glow), 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.tool-card.available::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-brand);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.tool-card.available:hover::before {
+    opacity: 1;
+}
+
+.tool-card.locked {
+    opacity: 0.62;
+    cursor: not-allowed;
+}
+
+.tool-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border-radius: var(--radius-md);
+    font-size: 1.6rem;
+    background-color: var(--bg-surface-elevated);
+}
+
+.tool-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.tool-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.tool-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+}
+
+.tool-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+.badge-available {
+    color: var(--color-success);
+    background-color: rgba(16, 185, 129, 0.12);
+}
+
+.badge-soon {
+    color: var(--color-warning);
+    background-color: rgba(245, 158, 11, 0.12);
+}
+
+.tool-cta {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tool-card.available:hover .tool-cta i {
+    transform: translateX(4px);
+}
+
+.tool-cta i { transition: var(--transition); }
+
+/* Footer */
+.portal-footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+    line-height: 1.8;
+}
+
+.portal-footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.portal-footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 560px) {
+    .portal-topbar { margin-bottom: 32px; }
+    .tool-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Mastery Portal — Learn the Tools, Follow the Roadmap</title>
+    <meta name="description" content="A guided DevOps learning portal. Master Git, Linux, Docker, Kubernetes, CI/CD, Terraform, Ansible, AWS, Azure, and Monitoring through an interactive roadmap.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="portal.css?v=2">
+</head>
+<body class="dark-theme">
+    <div class="portal-wrapper">
+        <!-- Top bar -->
+        <div class="portal-topbar">
+            <div class="portal-brand">
+                <i class="fa-solid fa-infinity"></i>
+                <span>DevOps Mastery</span>
+            </div>
+            <button class="theme-toggle-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">
+                <i class="fa-solid fa-sun"></i>
+            </button>
+        </div>
+
+        <!-- Hero -->
+        <header class="portal-hero">
+            <h1>Become a DevOps Engineer, One Tool at a Time</h1>
+            <p>A hands-on learning roadmap that takes you from zero to job-ready. Start with Git today &mdash; more tools are unlocking soon, each with beginner-friendly lessons, real-world scenarios, exercises, and quizzes.</p>
+        </header>
+
+        <!-- Roadmap phases -->
+        <main id="roadmap"></main>
+
+        <footer class="portal-footer">
+            Built for aspiring DevOps engineers &bull; Follow the roadmap top to bottom for best results.
+            <br>
+            Created by <a href="https://yenuganti.in" target="_blank" rel="noopener">Yenuganti</a>
+            &bull;
+            <a href="https://github.com/iam-yenuganti" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> github.com/iam-yenuganti</a>
+        </footer>
+    </div>
+
+    <script>
+        // Roadmap data — single source of truth for portal tool cards
+        const DEVOPS_ROADMAP = [
+            {
+                phase: "Foundations",
+                sub: "Start here — the everyday basics",
+                tools: [
+                    { name: "Git & GitHub", icon: "fa-brands fa-git-alt", color: "#f43f5e", desc: "Version control, branching, merging, remotes, and team collaboration. A complete beginner-to-advanced course you take at your own pace.", status: "available", link: "git.html" },
+                    { name: "Linux & Shell", icon: "fa-brands fa-linux", color: "#fbbf24", desc: "The command line, file system, permissions, processes, and Bash scripting every engineer needs.", status: "soon" }
+                ]
+            },
+            {
+                phase: "Containers",
+                sub: "Package and run apps anywhere",
+                tools: [
+                    { name: "Docker", icon: "fa-brands fa-docker", color: "#3b82f6", desc: "Images, containers, Dockerfiles, volumes, and networking to ship consistent environments.", status: "soon" },
+                    { name: "Kubernetes", icon: "fa-solid fa-dharmachakra", color: "#326ce5", desc: "Pods, deployments, services, and scaling containerized workloads in production.", status: "soon" }
+                ]
+            },
+            {
+                phase: "Automation & IaC",
+                sub: "Build, test, and provision automatically",
+                tools: [
+                    { name: "CI/CD", icon: "fa-solid fa-arrows-spin", color: "#10b981", desc: "Pipelines with GitHub Actions and Jenkins — automate builds, tests, and deployments.", status: "soon" },
+                    { name: "Terraform", icon: "fa-solid fa-cubes", color: "#7c3aed", desc: "Infrastructure as Code: define cloud resources declaratively and manage state safely.", status: "soon" },
+                    { name: "Ansible", icon: "fa-solid fa-screwdriver-wrench", color: "#ef4444", desc: "Agentless configuration management with playbooks to provision servers consistently.", status: "soon" }
+                ]
+            },
+            {
+                phase: "Cloud Platforms",
+                sub: "Run it all in the cloud",
+                tools: [
+                    { name: "AWS", icon: "fa-brands fa-aws", color: "#f59e0b", desc: "Core services: EC2, S3, IAM, VPC, and more — the most popular cloud platform.", status: "soon" },
+                    { name: "Azure", icon: "fa-solid fa-cloud", color: "#0ea5e9", desc: "Microsoft Azure essentials: compute, storage, networking, and identity.", status: "soon" }
+                ]
+            },
+            {
+                phase: "Observability",
+                sub: "Know what's happening in production",
+                tools: [
+                    { name: "Monitoring", icon: "fa-solid fa-chart-line", color: "#22d3ee", desc: "Metrics, dashboards, and alerts with Prometheus and Grafana to keep systems healthy.", status: "soon" }
+                ]
+            }
+        ];
+
+        function renderRoadmap() {
+            const root = document.getElementById("roadmap");
+            DEVOPS_ROADMAP.forEach((phase, i) => {
+                const block = document.createElement("section");
+                block.className = "phase-block";
+
+                const heading = document.createElement("div");
+                heading.className = "phase-heading";
+                heading.innerHTML = `
+                    <span class="phase-num">${i + 1}</span>
+                    <div>
+                        <h2>${phase.phase}</h2>
+                        <span class="phase-sub">${phase.sub}</span>
+                    </div>`;
+                block.appendChild(heading);
+
+                const grid = document.createElement("div");
+                grid.className = "tool-grid";
+
+                phase.tools.forEach(tool => {
+                    const isAvailable = tool.status === "available";
+                    const card = document.createElement(isAvailable ? "a" : "div");
+                    card.className = "tool-card " + (isAvailable ? "available" : "locked");
+                    if (isAvailable) card.href = tool.link;
+
+                    const badge = isAvailable
+                        ? `<span class="tool-badge badge-available">Available</span>`
+                        : `<span class="tool-badge badge-soon">Coming soon</span>`;
+                    const cta = isAvailable
+                        ? `<span class="tool-cta">Start learning <i class="fa-solid fa-arrow-right"></i></span>`
+                        : `<span class="tool-cta" style="color:var(--text-muted)"><i class="fa-solid fa-lock"></i> Locked</span>`;
+
+                    card.innerHTML = `
+                        <span class="tool-icon" style="color:${tool.color}"><i class="${tool.icon}"></i></span>
+                        <h3>${tool.name}</h3>
+                        <p>${tool.desc}</p>
+                        <div class="tool-footer">${badge}${cta}</div>`;
+                    grid.appendChild(card);
+                });
+
+                block.appendChild(grid);
+                root.appendChild(block);
+            });
+        }
+
+        function initTheme() {
+            const toggle = document.getElementById("themeToggle");
+            const saved = localStorage.getItem("git_theme") || "dark";
+            if (saved === "light") {
+                document.body.classList.remove("dark-theme");
+                document.body.classList.add("light-theme");
+                toggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+            toggle.addEventListener("click", () => {
+                const isDark = document.body.classList.contains("dark-theme");
+                document.body.classList.toggle("dark-theme", !isDark);
+                document.body.classList.toggle("light-theme", isDark);
+                toggle.innerHTML = isDark ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>';
+                localStorage.setItem("git_theme", isDark ? "light" : "dark");
+            });
+        }
+
+        renderRoadmap();
+        initTheme();
+    </script>
+</body>
+</html>

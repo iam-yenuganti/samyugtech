@@ -150,6 +150,57 @@ export default function Services() {
               <span className={styles.techBadge}>AI Auditing</span>
             </div>
           </div>
+
+          {/* Service 4 - DevOps Training & Academy */}
+          <div className={`${styles.serviceItem} glass-panel`}>
+            <div className={styles.serviceHeader}>
+              <div className={styles.iconBox}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                </svg>
+              </div>
+              <h2>DevOps Training &amp; Academy</h2>
+            </div>
+
+            <p className={styles.serviceDesc}>
+              Upskill your teams with hands-on, self-paced training. Our Academy starts with a complete beginner-to-advanced Git &amp; GitHub course featuring real-world scenarios, exercises, and quizzes &mdash; with more DevOps tracks on the way.
+            </p>
+
+            <ul className={styles.featureList}>
+              <li>
+                <svg className={styles.checkIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                Beginner-friendly lessons that scale to advanced topics
+              </li>
+              <li>
+                <svg className={styles.checkIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                Real-world scenarios, exercises, and knowledge-check quizzes
+              </li>
+              <li>
+                <svg className={styles.checkIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                Self-paced progress tracking &mdash; learn anytime, anywhere
+              </li>
+            </ul>
+
+            <div className={styles.techStack}>
+              <span className={styles.techBadge}>Git &amp; GitHub</span>
+              <span className={styles.techBadge}>Self-Paced</span>
+              <span className={styles.techBadge}>Hands-On</span>
+              <span className={styles.techBadge}>Quizzes</span>
+            </div>
+
+            <div style={{ marginTop: "1.75rem" }}>
+              <a href="/academy/" className="btn-primary">
+                Browse the Academy
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

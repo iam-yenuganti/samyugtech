@@ -52,6 +52,11 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
+            <a href="/academy/" className={styles.navLink}>
+              Academy
+            </a>
+          </li>
+          <li>
             <Link href="/contact" className={styles.contactBtn}>
               Get Started
             </Link>

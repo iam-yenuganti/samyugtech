@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+    window.addEventListener('error', function(e) {
+        var div = document.createElement('div');
+        div.style.position = 'fixed';
+        div.style.top = '10px';
+        div.style.left = '10px';
+        div.style.backgroundColor = '#ff4444';
+        div.style.color = 'white';
+        div.style.padding = '20px';
+        div.style.zIndex = '999999';
+        div.style.fontSize = '14px';
+        div.style.fontFamily = 'monospace';
+        div.style.whiteSpace = 'pre-wrap';
+        div.style.borderRadius = '8px';
+        div.style.boxShadow = '0 4px 12px rgba(0,0,0,0.5)';
+        div.innerHTML = '<strong>JS Error:</strong> ' + e.message + '<br>at ' + e.filename + ':' + e.lineno + ':' + e.colno;
+        document.body.appendChild(div);
+    });
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git & GitHub Mastery Course</title>
+    <!-- Meta Description for SEO -->
+    <meta name="description" content="Learn Git and GitHub from scratch — at your own pace. Beginner-friendly lessons grouped into Beginner, Intermediate, and Advanced phases, with real-world scenarios, copy-ready commands, hands-on exercises, and quizzes.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="index.css?v=7">
+</head>
+<body class="dark-theme">
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="app-sidebar" id="appSidebar">
+            <div class="sidebar-header">
+                <a class="brand" href="index.html" title="Back to DevOps Portal" style="text-decoration:none;">
+                    <i class="fa-brands fa-git-alt brand-icon"></i>
+                    <span>GitMastery</span>
+                </a>
+                <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle Sidebar">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+            </div>
+            <a class="back-to-portal" href="index.html" title="Back to DevOps Portal">
+                <i class="fa-solid fa-arrow-left"></i> <span>All DevOps Tools</span>
+            </a>
+
+            <!-- Progress Card -->
+            <div class="progress-card">
+                <div class="progress-label">
+                    <span>Course Progress</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="progress-fill" style="width: 0%"></div>
+                </div>
+                <div class="progress-stats">
+                    <span id="progress-days">0/30 Lessons Complete</span>
+                </div>
+            </div>
+
+            <!-- Navigation Links/Days -->
+            <nav class="sidebar-nav" id="sidebarNav">
+                <!-- Phases will be dynamically populated here -->
+                <div class="nav-loading">Loading curriculum...</div>
+            </nav>
+        </aside>
+
+        <!-- Main Dashboard View -->
+        <main class="app-main">
+            <!-- Header bar -->
+            <header class="app-header">
+                <div class="header-left">
+                    <div class="day-badge" id="current-phase-badge">Phase 1 — Beginner</div>
+                    <h1 class="day-title" id="current-day-title">Day 1 — What is Git & Version Control?</h1>
+                </div>
+                <div class="header-right">
+                    <button class="header-action-btn theme-toggle" id="btnThemeToggle" title="Toggle Theme">
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Workspace / Split Layout -->
+            <div class="dashboard-body">
+                <!-- Left Pane: Curriculum & Content -->
+                <section class="content-pane card-panel">
+                    <div class="pane-tabs">
+                        <button class="pane-tab-btn" data-tab="scenario" id="tabScenarioBtn">
+                            <i class="fa-solid fa-clapperboard"></i> Scenario
+                        </button>
+                        <button class="pane-tab-btn active" data-tab="theory" id="tabTheoryBtn">
+                            <i class="fa-solid fa-book-open"></i> Theory
+                        </button>
+                        <button class="pane-tab-btn" data-tab="practice" id="tabPracticeBtn">
+                            <i class="fa-solid fa-terminal"></i> Try It Yourself
+                        </button>
+                        <button class="pane-tab-btn" data-tab="exercises" id="tabExercisesBtn">
+                            <i class="fa-solid fa-dumbbell"></i> Exercises
+                            <span class="exercise-count-badge" id="exerciseCountBadge"></span>
+                        </button>
+                        <button class="pane-tab-btn" data-tab="quiz" id="tabQuizBtn">
+                            <i class="fa-solid fa-circle-question"></i> Quiz
+                            <span class="quiz-status-dot" id="quizDot"></span>
+                        </button>
+                    </div>
+
+                    <!-- Tab Content Windows -->
+                    <div class="tab-viewport">
+                        <!-- Scenario View -->
+                        <div class="tab-pane" id="pane-scenario">
+                            <div class="scenario-content" id="scenarioContent">
+                                <!-- Dynamically loaded real-world DevOps scenario -->
+                            </div>
+                        </div>
+
+                        <!-- Theory View -->
+                        <div class="tab-pane active" id="pane-theory">
+                            <div class="theory-content" id="theoryContent">
+                                <!-- Dynamically loaded markdown/HTML -->
+                            </div>
+                        </div>
+
+                        <!-- Practice View -->
+                        <div class="tab-pane" id="pane-practice">
+                            <div class="practice-instruction">
+                                <p class="instruction-desc">Follow these steps in order on your own computer. Each step explains what it does in plain English. Click the copy icon, paste it into your terminal, and watch what happens.</p>
+                            </div>
+                            <div class="practice-steps" id="practiceStepsContainer">
+                                <!-- Dynamic steps list -->
+                            </div>
+                        </div>
+
+                        <!-- Exercises View -->
+                        <div class="tab-pane" id="pane-exercises">
+                            <div class="exercises-intro">
+                                <p class="instruction-desc">Hands-on, real-world challenges. Try each task yourself on your own machine first, then click <strong>Reveal Solution</strong> to check your answer and copy the commands.</p>
+                            </div>
+                            <div class="exercises-container" id="exercisesContainer">
+                                <!-- Dynamic exercise rendering -->
+                            </div>
+                        </div>
+
+                        <!-- Quiz View -->
+                        <div class="tab-pane" id="pane-quiz">
+                            <div class="quiz-container" id="quizContainer">
+                                <!-- Dynamic quiz rendering -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="data.js?v=7"></script>
+    <script src="content-extra.js?v=7"></script>
+    <script src="app.js?v=7"></script>
+</body>
+</html>

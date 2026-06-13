@@ -36,9 +36,7 @@
         <footer class="portal-footer">
             Built for aspiring DevOps engineers &bull; Follow the roadmap top to bottom for best results.
             <br>
-            Created by <a href="https://yenuganti.in" target="_blank" rel="noopener">Yenuganti</a>
-            &bull;
-            <a href="https://github.com/iam-yenuganti" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> github.com/iam-yenuganti</a>
+            &copy; <span id="footerYear">2026</span> SamyugTech
         </footer>
     </div>
 
@@ -166,6 +164,7 @@
 
         renderRoadmap();
         initTheme();
+        document.getElementById("footerYear").textContent = new Date().getFullYear();
     </script>
 </body>
 </html>

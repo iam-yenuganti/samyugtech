@@ -60,7 +60,7 @@ const LINUX_ROADMAP_DATA = [
         ],
         exercises: [
             { difficulty: "Easy", task: "Make the terminal print the words: I am learning Linux", solution: "echo \"I am learning Linux\"", outcome: "The exact text is printed back to you on the next line." },
-            { difficulty: "Easy", task: "Find out what username you are currently using.", solution: "whoami", outcome: "Prints your account name, e.g. 'srinivas'." },
+            { difficulty: "Easy", task: "Find out what username you are currently using.", solution: "whoami", outcome: "Prints your account name, e.g. 'alex'." },
             { difficulty: "Practice", task: "Ask the computer for today's date and time.", solution: "date", outcome: "Shows the full current date and time." }
         ],
         quiz: [
@@ -78,7 +78,7 @@ const LINUX_ROADMAP_DATA = [
             <p>A Linux computer stores everything in <strong>folders</strong> (also called <strong>directories</strong>) nested inside each other, just like folders on your phone or in a filing cabinet. When you're in the terminal, you are always "standing" inside one folder. Three commands let you find and change where you stand.</p>
 
             <h3>1. <code>pwd</code> — "Where am I right now?"</h3>
-            <p><code>pwd</code> stands for <em>print working directory</em>. It shows the full path of the folder you're currently in, like <code>/home/srinivas</code>. Think of it as asking "what's my current address?"</p>
+            <p><code>pwd</code> stands for <em>print working directory</em>. It shows the full path of the folder you're currently in, like <code>/home/alex</code>. Think of it as asking "what's my current address?"</p>
 
             <h3>2. <code>ls</code> — "What's in here?"</h3>
             <p><code>ls</code> (short for <em>list</em>) shows the files and folders inside your current folder — like opening a drawer and seeing what's inside.</p>
@@ -963,7 +963,7 @@ const LINUX_ROADMAP_DATA = [
             </ul>
 
             <h3>Making your own</h3>
-            <p><code>NAME="Srinivas"</code> creates a variable, and <code>echo $NAME</code> reads it back. To make it available to programs you launch, use <code>export NAME="Srinivas"</code>. (These last only for the current terminal unless you save them in a startup file — more below.)</p>
+            <p><code>NAME="Alex"</code> creates a variable, and <code>echo $NAME</code> reads it back. To make it available to programs you launch, use <code>export NAME="Alex"</code>. (These last only for the current terminal unless you save them in a startup file — more below.)</p>
 
             <h3>The special one: PATH</h3>
             <p><code>PATH</code> is a list of folders the shell searches to find programs. When you type <code>python</code>, the shell looks through each folder in <code>PATH</code> until it finds it. That's why installed programs "just work" by name — they live in a folder that's on your <code>PATH</code>. View it with <code>echo $PATH</code>.</p>
@@ -1130,7 +1130,7 @@ date</code></pre>
             <h3>Variables in scripts</h3>
             <p>Set a value, then use it with a <code>$</code>:</p>
             <pre><code>#!/bin/bash
-name="Srinivas"
+name="Alex"
 echo "Hello, $name!"</code></pre>
             <p><strong>Important:</strong> no spaces around the <code>=</code>. Write <code>name="Sri"</code>, not <code>name = "Sri"</code>.</p>
 

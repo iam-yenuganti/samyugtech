@@ -22,9 +22,9 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Git & GitHub Mastery Course</title>
+    <title>Linux & Shell Mastery Course</title>
     <!-- Meta Description for SEO -->
-    <meta name="description" content="Learn Git and GitHub from scratch — at your own pace. Beginner-friendly lessons grouped into Beginner, Intermediate, and Advanced phases, with real-world scenarios, copy-ready commands, hands-on exercises, and quizzes.">
+    <meta name="description" content="Learn Linux and the command line from scratch — at your own pace. Beginner-friendly lessons grouped into Beginner, Intermediate, and Advanced phases, with real-world scenarios, copy-ready commands, lots of hands-on exercises, and quizzes.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,8 +40,8 @@
         <aside class="app-sidebar" id="appSidebar">
             <div class="sidebar-header">
                 <a class="brand" href="index.html" title="Back to DevOps Portal" style="text-decoration:none;">
-                    <i class="fa-brands fa-git-alt brand-icon"></i>
-                    <span>GitMastery</span>
+                    <i class="fa-brands fa-linux brand-icon"></i>
+                    <span>LinuxMastery</span>
                 </a>
                 <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle Sidebar">
                     <i class="fa-solid fa-chevron-left"></i>
@@ -61,7 +61,7 @@
                     <div class="progress-bar-fill" id="progress-fill" style="width: 0%"></div>
                 </div>
                 <div class="progress-stats">
-                    <span id="progress-days">0/30 Lessons Complete</span>
+                    <span id="progress-days">0/24 Lessons Complete</span>
                 </div>
             </div>
 
@@ -82,7 +82,7 @@
                     </button>
                     <div class="header-titles">
                         <div class="day-badge" id="current-phase-badge">Phase 1 — Beginner</div>
-                        <h1 class="day-title" id="current-day-title">Day 1 — What is Git & Version Control?</h1>
+                        <h1 class="day-title" id="current-day-title">Lesson 1 — Where Am I? Moving Around Folders</h1>
                     </div>
                 </div>
                 <div class="header-right">
@@ -121,7 +121,7 @@
                         <!-- Scenario View -->
                         <div class="tab-pane" id="pane-scenario">
                             <div class="scenario-content" id="scenarioContent">
-                                <!-- Dynamically loaded real-world DevOps scenario -->
+                                <!-- Dynamically loaded real-world scenario -->
                             </div>
                         </div>
 
@@ -168,23 +168,22 @@
     </div>
 
     <!-- Scripts -->
-    <script src="data.js?v=7"></script>
-    <script src="content-extra.js?v=7"></script>
+    <script src="linux-data.js?v=1"></script>
     <script>
-        // Configure the shared course engine for the Git & GitHub course
+        // Configure the shared course engine for the Linux & Shell course
         window.COURSE_CONFIG = {
-            data: GIT_ROADMAP_DATA,
-            extra: (typeof GIT_CONTENT_EXTRA !== "undefined") ? GIT_CONTENT_EXTRA : null,
-            storagePrefix: "git",
+            data: LINUX_ROADMAP_DATA,
+            extra: null,
+            storagePrefix: "linux",
             phases: [
                 { name: "Getting Started", days: [0, 0] },
                 { name: "Phase 1 — Beginner", days: [1, 10] },
-                { name: "Phase 2 — Intermediate", days: [11, 20] },
-                { name: "Phase 3 — Advanced", days: [21, 30] }
+                { name: "Phase 2 — Intermediate", days: [11, 18] },
+                { name: "Phase 3 — Advanced", days: [19, 24] }
             ],
-            scenarioKicker: "Real-World DevOps Scenario",
-            quizPrompt: "Select the correct command or Git behavior from the options below.",
-            completionMessage: "🎉 Congratulations! You've completed the entire Git & GitHub course — from total beginner to advanced. Go at your own pace and revisit any lesson anytime!"
+            scenarioKicker: "Real-World Scenario",
+            quizPrompt: "Select the correct command or answer from the options below.",
+            completionMessage: "🎉 Congratulations! You've completed the entire Linux & Shell course — from your very first command to writing real scripts. Go at your own pace and revisit any lesson anytime!"
         };
     </script>
     <script src="app.js?v=10"></script>

@@ -1,10 +1,35 @@
 /* app.js — Main application logic, router, and event controllers */
 
 document.addEventListener("DOMContentLoaded", () => {
-    // 0. Merge enrichment content (scenarios, exercises, enriched theory/quizzes)
-    if (typeof GIT_CONTENT_EXTRA !== "undefined") {
-        GIT_ROADMAP_DATA.forEach(day => {
-            const extra = GIT_CONTENT_EXTRA[day.day];
+    // 0a. Course configuration.
+    //    Each course page may define window.COURSE_CONFIG before loading this
+    //    script. If it doesn't, we fall back to the Git course defaults so the
+    //    original git.html keeps working unchanged.
+    const CONFIG = Object.assign({
+        data: (typeof GIT_ROADMAP_DATA !== "undefined") ? GIT_ROADMAP_DATA : [],
+        extra: (typeof GIT_CONTENT_EXTRA !== "undefined") ? GIT_CONTENT_EXTRA : null,
+        storagePrefix: "git",
+        phases: [
+            { name: "Getting Started", days: [0, 0] },
+            { name: "Phase 1 — Beginner", days: [1, 10] },
+            { name: "Phase 2 — Intermediate", days: [11, 20] },
+            { name: "Phase 3 — Advanced", days: [21, 30] }
+        ],
+        scenarioKicker: "Real-World Scenario",
+        quizPrompt: "Select the correct answer from the options below.",
+        completionMessage: "🎉 Congratulations! You've completed the entire course — from total beginner to advanced. Go at your own pace and revisit any lesson anytime!"
+    }, (typeof window !== "undefined" && window.COURSE_CONFIG) ? window.COURSE_CONFIG : {});
+
+    const ROADMAP_DATA = CONFIG.data;
+    const TOTAL_LESSONS = CONFIG.data.filter(x => x.day >= 1).length;
+    const KEY_COMPLETED = CONFIG.storagePrefix + "_completed_days";
+    const KEY_QUIZ = CONFIG.storagePrefix + "_quiz_progress";
+    const KEY_THEME = CONFIG.storagePrefix + "_theme";
+
+    // 0b. Merge enrichment content (scenarios, exercises, enriched theory/quizzes)
+    if (CONFIG.extra) {
+        ROADMAP_DATA.forEach(day => {
+            const extra = CONFIG.extra[day.day];
             if (!extra) return;
             if (extra.theory) day.theory = extra.theory;
             if (extra.scenario) day.scenario = extra.scenario;
@@ -22,8 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentDay = 0; // start on the environment-setup lesson
     let osMode = "mac"; // 'mac' or 'win'
     let activeTab = "theory"; // 'scenario', 'theory', 'practice', 'exercises', or 'quiz'
-    let completedDays = JSON.parse(localStorage.getItem("git_completed_days")) || [];
-    let quizProgress = JSON.parse(localStorage.getItem("git_quiz_progress")) || {}; // day -> quiz state
+    let completedDays = JSON.parse(localStorage.getItem(KEY_COMPLETED)) || [];
+    let quizProgress = JSON.parse(localStorage.getItem(KEY_QUIZ)) || {}; // day -> quiz state
 
     // 3. Select DOM elements
     const sidebarNav = document.getElementById("sidebarNav");
@@ -75,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function initApp() {
         // Load saved theme
-        const savedTheme = localStorage.getItem("git_theme") || "dark";
+        const savedTheme = localStorage.getItem(KEY_THEME) || "dark";
         if (savedTheme === "light") {
             document.body.classList.remove("dark-theme");
             document.body.classList.add("light-theme");
@@ -99,12 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function buildSidebarCurriculum() {
         sidebarNav.innerHTML = "";
 
-        const phases = [
-            { name: "Getting Started", days: [0, 0] },
-            { name: "Phase 1 — Beginner", days: [1, 10] },
-            { name: "Phase 2 — Intermediate", days: [11, 20] },
-            { name: "Phase 3 — Advanced", days: [21, 30] }
-        ];
+        const phases = CONFIG.phases;
 
         phases.forEach(phase => {
             const section = document.createElement("div");
@@ -116,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
             section.appendChild(title);
 
             for (let d = phase.days[0]; d <= phase.days[1]; d++) {
-                const dayData = GIT_ROADMAP_DATA.find(x => x.day === d);
+                const dayData = ROADMAP_DATA.find(x => x.day === d);
                 if (!dayData) continue;
 
                 const dayLink = document.createElement("a");
@@ -149,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function loadDay(dayNumber) {
         currentDay = dayNumber;
-        const dayData = GIT_ROADMAP_DATA.find(x => x.day === dayNumber);
+        const dayData = ROADMAP_DATA.find(x => x.day === dayNumber);
         if (!dayData) return;
 
         // Phase and Title
@@ -192,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="scenario-banner">
                 <i class="fa-solid fa-clapperboard"></i>
                 <div>
-                    <span class="scenario-kicker">Real-World DevOps Scenario</span>
+                    <span class="scenario-kicker">${CONFIG.scenarioKicker}</span>
                     <h2 class="scenario-day-title">${dayData.day === 0 ? "Setup" : "Lesson " + dayData.day}: ${dayData.title}</h2>
                 </div>
             </div>
@@ -354,7 +374,7 @@ document.addEventListener("DOMContentLoaded", () => {
         qHeader.className = "quiz-header-card";
         qHeader.innerHTML = `
             <h2>Question ${qIdx + 1} of ${dayData.quiz.length}</h2>
-            <p>Select the correct command or git behavior from the options below.</p>
+            <p>${CONFIG.quizPrompt}</p>
         `;
         card.appendChild(qHeader);
 
@@ -418,12 +438,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (qIdx + 1 < dayData.quiz.length) {
                     quizState.currentQuestionIdx++;
                     quizProgress[dayData.day] = quizState;
-                    localStorage.setItem("git_quiz_progress", JSON.stringify(quizProgress));
+                    localStorage.setItem(KEY_QUIZ, JSON.stringify(quizProgress));
                     buildQuiz(dayData);
                 } else {
                     quizState.finished = true;
                     quizProgress[dayData.day] = quizState;
-                    localStorage.setItem("git_quiz_progress", JSON.stringify(quizProgress));
+                    localStorage.setItem(KEY_QUIZ, JSON.stringify(quizProgress));
                     renderQuizResults(dayData);
                 }
             } else {
@@ -450,7 +470,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Update state
                 quizState.answers[qIdx] = isCorrect;
                 quizProgress[dayData.day] = quizState;
-                localStorage.setItem("git_quiz_progress", JSON.stringify(quizProgress));
+                localStorage.setItem(KEY_QUIZ, JSON.stringify(quizProgress));
 
                 submitBtn.querySelector("span").textContent = (qIdx + 1 < dayData.quiz.length) ? "Next Question" : "View Results";
             }
@@ -478,7 +498,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!passed) {
             document.getElementById("btnRetryQuiz").addEventListener("click", () => {
                 quizProgress[dayData.day] = { currentQuestionIdx: 0, answers: {}, finished: false };
-                localStorage.setItem("git_quiz_progress", JSON.stringify(quizProgress));
+                localStorage.setItem(KEY_QUIZ, JSON.stringify(quizProgress));
                 buildQuiz(dayData);
             });
         }
@@ -491,7 +511,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function markDayCompleted(dayNumber) {
         if (!completedDays.includes(dayNumber)) {
             completedDays.push(dayNumber);
-            localStorage.setItem("git_completed_days", JSON.stringify(completedDays));
+            localStorage.setItem(KEY_COMPLETED, JSON.stringify(completedDays));
         }
 
         // Celebrate! Update sidebar indicators
@@ -499,17 +519,17 @@ document.addEventListener("DOMContentLoaded", () => {
         updateProgressIndicators();
 
         // Advance to next lesson if available
-        if (dayNumber < 30) {
+        if (dayNumber < TOTAL_LESSONS) {
             loadDay(dayNumber + 1);
         } else {
-            alert("🎉 Congratulations! You've completed the entire Git & GitHub course — from total beginner to advanced. Go at your own pace and revisit any lesson anytime!");
+            alert(CONFIG.completionMessage);
         }
     }
 
     function updateProgressIndicators() {
-        const total = 30;
-        const completed = completedDays.filter(d => d >= 1).length; // Day 0 (setup) isn't counted toward the 30
-        const percent = Math.round((completed / total) * 100);
+        const total = TOTAL_LESSONS;
+        const completed = completedDays.filter(d => d >= 1).length; // Day 0 (setup) isn't counted
+        const percent = total ? Math.round((completed / total) * 100) : 0;
 
         progressFill.style.width = percent + "%";
         progressPercent.textContent = percent + "%";
@@ -531,12 +551,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.body.classList.remove("dark-theme");
                 document.body.classList.add("light-theme");
                 btnThemeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
-                localStorage.setItem("git_theme", "light");
+                localStorage.setItem(KEY_THEME, "light");
             } else {
                 document.body.classList.remove("light-theme");
                 document.body.classList.add("dark-theme");
                 btnThemeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-                localStorage.setItem("git_theme", "dark");
+                localStorage.setItem(KEY_THEME, "dark");
             }
         });
 
